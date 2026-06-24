@@ -3,7 +3,6 @@ import { NoteForm } from './components/NoteForm';
 import { Note } from './components/Note';
 
 export default function App() {
-  // Estado inicial: Lee del Local Storage. Si no hay nada, empieza vacío para mostrar el mensaje.
   const [notes, setNotes] = useState(() => {
     const savedNotes = localStorage.getItem('mis-notas');
     if (savedNotes) {
@@ -13,7 +12,6 @@ export default function App() {
     }
   });
 
-  // Guarda en Local Storage cada vez que las notas cambian
   useEffect(() => {
     localStorage.setItem('mis-notas', JSON.stringify(notes));
   }, [notes]);
@@ -33,7 +31,7 @@ export default function App() {
       
       <NoteForm onAddNote={addNote} />
 
-      {/* REGLA LÓGICA: Si no hay notas, muestra el mensaje. Si hay, muestra la grilla */}
+      {/* REGLA LÓGICA*/}
       {notes.length === 0 ? (
         <div className="no-notes-container">
           <p>No hay notas. Por favor, llena el formulario para agregar una.</p>
