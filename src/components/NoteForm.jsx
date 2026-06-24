@@ -6,22 +6,20 @@ export function NoteForm({ onAddNote }) {
   const [important, setImportant] = useState(false);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault(); 
 
-    // Validación: La descripción es obligatoria
     if (description.trim() === '') {
       alert('El campo descripción es obligatorio.');
       return;
     }
 
     onAddNote({
-      id: Date.now(), // Generamos un ID único con la fecha
+      id: Date.now(), 
       title,
       description,
       important
     });
 
-    // Limpiamos el formulario
     setTitle('');
     setDescription('');
     setImportant(false);
