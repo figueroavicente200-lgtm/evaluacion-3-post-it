@@ -1,0 +1,168 @@
+/* Importamos una fuente tipo manuscrita para simular la escritura de los Post-Its */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  /* Fuente base limpia para el título y el formulario */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #1a2a3a; /* El azul oscuro que solicitaste */
+  color: #333;
+  margin: 0;
+  padding: 40px 20px;
+  /* Centramos todo el contenido horizontalmente */
+  display: flex;
+  justify-content: center; 
+}
+
+/* Este es el contenedor invisible que envuelve toda tu app en React */
+#root {
+  max-width: 1100px;
+  width: 100%;
+}
+
+h1 {
+  color: white;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* --- ESTILOS DEL FORMULARIO (Calcados de la imagen) --- */
+.form-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.form-container input[type="text"] {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  flex: 1; /* Hace que las barras de texto se estiren */
+  min-width: 200px;
+}
+
+.form-container label {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.form-container button {
+  padding: 12px 30px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* --- GRILLA DE NOTAS --- */
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 50px; /* Aumentamos la separación vertical a 50px para celulares */
+  justify-items: center;
+  padding: 15px 0; /* Un poco de margen superior e inferior */
+  width: 100%;
+}
+
+/* Cuando la pantalla es grande (PC), muestra 4 por fila y reduce un poco la separación */
+@media (min-width: 768px) {
+  .notes-grid {
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+  }
+}
+
+/* --- DISEÑO DEL POST-IT INDIVIDUAL --- */
+.note {
+  background-color: #fffacd; /* Amarillo pastel clásico */
+  padding: 20px;
+  position: relative;
+  box-shadow: 4px 6px 10px rgba(0,0,0,0.4);
+  width: 100%;
+  min-height: 220px;
+  /* Aplicamos la fuente manuscrita que importamos arriba */
+  font-family: 'Kalam', 'Comic Sans MS', cursive; 
+  transition: transform 0.2s ease; /* Transición suave al pasar el mouse */
+}
+
+/* Ajustes de letra dentro de la nota */
+.note h3, .note p {
+  font-family: inherit; 
+  margin-top: 0;
+}
+
+.note h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  padding-right: 20px; /* Deja espacio para que la X no tape el texto */
+}
+
+.note p {
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+/* --- EL TRUCO DE LA ROTACIÓN --- */
+/* Las notas pares se inclinan un poco a la derecha */
+.note:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* Las notas impares se inclinan un poco a la izquierda */
+.note:nth-child(odd) {
+  transform: rotate(-3deg);
+}
+
+/* Si pasas el mouse por encima, la nota se endereza y se agranda un poquito */
+.note:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+}
+
+/* Color para las notas importantes */
+.note.important {
+  background-color: #ff6b6b; /* Rojo coral de la imagen */
+  color: black;
+}
+
+/* El botón de borrar (la X) */
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: sans-serif; /* Mantenemos la X con una fuente normal */
+}
+
+/* --- ESTILO PARA EL MENSAJE CUANDO NO HAY NOTAS --- */
+.no-notes-container {
+  text-align: center;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px; /* Reducimos bastante el espacio interno */
+  border-radius: 8px;
+  margin: 20px auto; /* Centra el recuadro horizontalmente */
+  max-width: 400px; /* Obliga al recuadro a ser más angosto */
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.no-notes-container p {
+  font-size: 1rem; /* Letra mucho más pequeña */
+  margin: 0;
+  font-weight: 500;
+}
