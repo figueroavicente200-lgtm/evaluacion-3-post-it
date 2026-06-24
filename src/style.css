@@ -1,4 +1,4 @@
-/* Importamos una fuente tipo manuscrita para simular la escritura de los Post-Its */
+
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
 
 * {
@@ -8,11 +8,10 @@
 }
 
 body {
-  background-color: #1a2a3a; /* El azul oscuro que solicitaste */
+  background-color: #1a2a3a; 
   color: #333;
   margin: 0;
   padding: 40px 20px;
-  /* Centramos todo el contenido horizontalmente */
   display: flex;
   justify-content: center; 
 }
@@ -82,7 +81,7 @@ h1 {
 
 
 .note {
-  background-color: #fffacd; /* Amarillo pastel clásico */
+  background-color: #fffacd;
   padding: 20px;
   position: relative;
   box-shadow: 4px 6px 10px rgba(0,0,0,0.4);
@@ -122,13 +121,11 @@ h1 {
   z-index: 10;
 }
 
-/* Color para las notas importantes */
 .note.important {
-  background-color: #ff6b6b; /* Rojo coral de la imagen */
+  background-color: #ff6b6b; 
   color: black;
 }
 
-/* El botón de borrar (la X) */
 .delete-btn {
   position: absolute;
   top: 10px;
@@ -138,23 +135,22 @@ h1 {
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  font-family: sans-serif; /* Mantenemos la X con una fuente normal */
+  font-family: sans-serif;
 }
 
-/* --- ESTILO PARA EL MENSAJE CUANDO NO HAY NOTAS --- */
 .no-notes-container {
   text-align: center;
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 15px 20px; /* Reducimos bastante el espacio interno */
+  padding: 15px 20px;
   border-radius: 8px;
-  margin: 20px auto; /* Centra el recuadro horizontalmente */
-  max-width: 400px; /* Obliga al recuadro a ser más angosto */
+  margin: 20px auto; 
+  max-width: 400px; 
   border: 2px dashed rgba(255, 255, 255, 0.2);
 }
 
 .no-notes-container p {
-  font-size: 1rem; /* Letra mucho más pequeña */
+  font-size: 1rem;
   margin: 0;
   font-weight: 500;
 }
