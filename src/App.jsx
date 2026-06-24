@@ -8,7 +8,7 @@ export default function App() {
     if (savedNotes) {
       return JSON.parse(savedNotes);
     } else {
-      return []; // Arreglo vacío de entrada
+      return [];
     }
   });
 
