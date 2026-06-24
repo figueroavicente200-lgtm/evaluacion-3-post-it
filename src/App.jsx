@@ -31,7 +31,7 @@ export default function App() {
       
       <NoteForm onAddNote={addNote} />
 
-      {/* REGLA LÓGICA*/}
+      {/* Regla*/}
       {notes.length === 0 ? (
         <div className="no-notes-container">
           <p>No hay notas. Por favor, llena el formulario para agregar una.</p>
